@@ -1,0 +1,320 @@
+import React, { useState } from 'react';
+import "./rest-form.css"
+
+const Restaurant = () => {
+  const [menuItemid, setMenuItemId] = useState('');
+  const [restaurantId, setRestaurantId] = useState('');
+  const [name,setName] = useState('');
+  const [description,setDescription] = useState('');
+  const [price,setPrice] = useState('');
+  const [ingredients,setIngredients] = useState('');
+
+  const handleMenuItemSubmit = (event) => {
+    event.preventDefault();
+
+    id: str, restaurant_id, name, description, price,ingredients
+    console.log('menuItemid,',);
+    console.log('restaurantId',);
+    console.log('name,',);
+    console.log('description',);
+    console.log('price',);
+    console.log('ingredients',);
+
+  };
+
+  const handlePhotoChange = (event) => {
+    const file = event.target.files[0];
+    setRestaurantPhoto(file);
+  };
+
+  const handleOverlayClick = () => {
+    setShowOverlay(false);
+  };
+
+  const handleOpenForm = () => {
+    setShowOverlay(true);
+  };
+
+  return (
+    <div>
+      <h2>Restaurant Details</h2>
+      <button onClick={handleOpenForm}>Add Restaurant</button>
+      {showOverlay && (
+        <div className="overlay" onClick={handleOverlayClick}>
+          <div className="form-container" onClick={(e) => e.stopPropagation()}>
+            <h2>Add Restaurant<h6>click away from form to close </h6></h2>
+            <form onSubmit={handleRestaurantSubmit}>
+              <label>
+                Restaurant Name:
+                <input
+                  type="text"
+                  value={restaurantName}
+                  onChange={(e) => setRestaurantName(e.target.value)}
+                />
+              </label>
+              <label>
+                Address:
+                <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+              </label>
+              <label>
+                Phone Number:
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </label>
+              <label>
+                Cuisine Type:
+                <input
+                  type="text"
+                  value={cuisineType}
+                  onChange={(e) => setCuisineType(e.target.value)}
+                />
+              </label>
+              <label>
+                Opening Hours:
+                <input
+                  type="text"
+                  value={openingHours}
+                  onChange={(e) => setOpeningHours(e.target.value)}
+                />
+              </label>
+              <label>
+                Delivery Time:
+                <input
+                  type="text"
+                  value={deliveryTime}
+                  onChange={(e) => setDeliveryTime(e.target.value)}
+                />
+              </label>
+              <label>
+                Average Rating:
+                <input
+                  type="text"
+                  value={averageRating}
+                  onChange={(e) => setAverageRating(e.target.value)}
+                />
+              </label>
+              <label>
+                Restaurant Photo:
+                <input type="file" accept="image/*" onChange={handlePhotoChange} />
+              </label>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Restaurant;
+
+
+{/*
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  // const [vehicleDetails, setVehicleDetails] = useState('');
+  // const [photo, setPhoto] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Phone Number:', phoneNumber);
+    // console.log('Vehicle Details:', vehicleDetails);
+    // console.log('Photo:', photo);
+
+    setName('');
+    setEmail('');
+    setPhoneNumber('');
+    // setVehicleDetails('');
+    // setPhoto(null);
+  };
+
+  // const handlePhotoChange = (event) => {
+  //   const file = event.target.files[0];
+  //   setPhoto(file);
+  // };
+
+<div className="form-group">
+<label htmlFor="vehicleDetails">Vehicle Details:</label>
+<input
+  type="text"
+  id="vehicleDetails"
+  value={vehicleDetails}
+  onChange={(e) => setVehicleDetails(e.target.value)}
+/>
+</div>
+<div className="form-group">
+<label htmlFor="photo">Photo:</label>
+<input type="file" accept="image/*" onChange={handlePhotoChange} />
+</div> */}
+
+
+
+
+{/* 
+const Restaurant = ({ addRestaurant }) => {
+  const [restaurantName, setRestaurantName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const [cuisineType, setCuisineType] = useState('');
+  // const [openingHours, setOpeningHours] = useState('');
+  // const [deliveryTime, setDeliveryTime] = useState('');
+  // const [averageRating, setAverageRating] = useState('');
+  // const [restaurantPhoto, setRestaurantPhoto] = useState(null);
+  // const [restaurantLicense, setRestaurantLicense] = useState(null);
+  // const [ownersIdProof, setOwnersIdProof] = useState(null);
+  // const [businessRegistration, setBusinessRegistration] = useState(null);
+  // const [addressVerification, setAddressVerification] = useState(null);
+  // const [healthAndSafetyCertificates, setHealthAndSafetyCertificates] = useState(null);
+  // const [taxRegistration, setTaxRegistration] = useState(null);
+
+  const handleRestaurantSubmit = (event) => {
+    event.preventDefault();
+
+    const newRestaurant = {
+      name: restaurantName,
+      address: address,
+      phoneNumber: phoneNumber,
+      email:email,
+      password:password,
+      // cuisineType: cuisineType,
+      // openingHours: openingHours,
+      // deliveryTime: deliveryTime,
+      // averageRating: averageRating,
+      // photo: restaurantPhoto,
+      // license: restaurantLicense,
+      // ownersIdProof: ownersIdProof,
+      // businessRegistration: businessRegistration,
+      // addressVerification: addressVerification,
+      // healthAndSafetyCertificates: healthAndSafetyCertificates,
+      // taxRegistration: taxRegistration,
+    };
+
+    addRestaurant(newRestaurant);
+
+    setRestaurantName('');
+    setAddress('');
+    setPhoneNumber('');
+    setEmail('');
+    setPassword('');
+    // setCuisineType('');
+    // setOpeningHours('');
+    // setDeliveryTime('');
+    // setAverageRating('');
+    // setRestaurantPhoto(null);
+    // setRestaurantLicense(null);
+    // setOwnersIdProof(null);
+    // setBusinessRegistration(null);
+    // setAddressVerification(null);
+    // setHealthAndSafetyCertificates(null);
+    // setTaxRegistration(null);
+  };
+
+  // const handlePhotoChange = (event, setState) => {
+  //   const file = event.target.files[0];
+  //   setState(file);
+  // };
+
+  
+<label>
+          Cuisine Type: <span className="important-field">*</span>
+          <input
+            type="text"
+            value={cuisineType}
+            onChange={(e) => setCuisineType(e.target.value)}
+            required
+          />
+        </label>
+          <label>
+            Opening Hours: <span className="important-field">*</span>
+            <input
+              type="time"
+              value={openingHours}
+              onChange={(e) => setOpeningHours(e.target.value)}
+              required
+              step="900" // 15 minutes increment
+            />
+          </label>
+          <label>
+            Delivery Time: <span className="important-field">*</span>
+            <input
+              type="time"
+              value={deliveryTime}
+              onChange={(e) => setDeliveryTime(e.target.value)}
+              required
+              step="900" // 15 minutes increment
+          />
+        </label>
+        <label>
+          Restaurant Photo: <span className="important-field">*</span>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => handlePhotoChange(e, setRestaurantPhoto)}
+            required
+          />
+        </label>
+        <label>
+          Restaurant License/Certificate: <span className="important-field">*</span>
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            onChange={(e) => handlePhotoChange(e, setRestaurantLicense)}
+            required
+          />
+        </label>
+        <label>
+          Owner's ID Proof: <span className="important-field">*</span>
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            onChange={(e) => handlePhotoChange(e, setOwnersIdProof)}
+            required
+          />
+        </label>
+        <label>
+          Business Registration Documents: <span className="important-field">*</span>
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            onChange={(e) => handlePhotoChange(e, setBusinessRegistration)}
+            required
+          />
+        </label>
+        <label>
+          Address Verification: <span className="important-field">*</span>
+         ```jsx
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            onChange={(e) => handlePhotoChange(e, setAddressVerification)}
+            required
+          />
+        </label>
+        <label>
+          Health and Safety Certificates: <span className="important-field">*</span>
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            onChange={(e) => handlePhotoChange(e, setHealthAndSafetyCertificates)}
+            required
+          />
+        </label>
+        <label>
+          Tax Registration: <span className="important-field">*</span>
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            onChange={(e) => handlePhotoChange(e, setTaxRegistration)}
+            required
+          />
+        </label> */}

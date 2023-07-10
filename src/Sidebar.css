@@ -1,0 +1,52 @@
+.sidebar {
+    width: 230px;
+    margin-top: 10px;
+    background-color: #d6cece3f;
+    color: #080808;
+    padding: 20px;
+    border: 3px solid rgb(0, 38, 255);
+    height: min-content;
+    margin-left: 5px;
+  }
+  
+  .sidebar-heading {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  
+  .cuisine-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .filter-button {
+    background-color: #ebebeb;
+    color: #333;
+    width: auto;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-button:hover {
+    border-radius: 5px;
+    border-color: #333;
+  }
+  
+  
+  .cuisine-item {
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  
+  .cuisine-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .cuisine-item:hover {
+    background-color: #ccc; 
+  }
