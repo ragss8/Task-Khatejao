@@ -11,15 +11,15 @@ const FeedbackForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission
-    // You can perform additional validation or API calls here
+
+
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Rating:', rating);
     console.log('Comments:', comments);
     console.log('Suggestions:', suggestions);
 
-    // Reset form fields
+
     setName('');
     setEmail('');
     setRating('');
